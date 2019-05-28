@@ -1,13 +1,16 @@
 import Axios from 'axios'
 import auth from './index'
 
-export const fetchAuth = () => {
+export const fetchAuth = (email, password) => {
   const payload = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
       'Accept': 'application/json' 
     },
-    user: {email: 'admina@admin.com', password: 'admin123' }
+    user: { 
+      email, 
+      password 
+    }
   }
 
   return function(dispatch) {
@@ -15,7 +18,8 @@ export const fetchAuth = () => {
 
     return Axios
       .post('http://0.0.0.0:4000/api/sessions', payload)
-      .then(res => dispatch(auth.actions.loadAuth(res.data.user)))
+      .then(res => dispatch(auth.actions.loadAuth(res.data)))
+      .then(() => dispatch(auth.actions.validatedAuth(true)))
       .then(() => dispatch(auth.actions.lastLoadedAuth(Date.now())))
       .catch(err => err)
       .finally(() => dispatch(auth.actions.fetchingAuth(false)))

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { connect } from 'react-redux' 
+import { connect } from 'react-redux'
 import { fetchAuth } from '~/app/store/auth/actions'
 
-const LoginPage = (props) => {
+const RegisterPage = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const _onSubmit = e => {
@@ -20,7 +20,7 @@ const LoginPage = (props) => {
   return (
     <main>
       <section>
-        <form className='o__login-page' onSubmit={e => _onSubmit(e)}>
+        <form className='o__register-page' onSubmit={e => _onSubmit(e)}>
           <fieldset className='wrappers'>
             <label htmlFor='username'>Username</label>
             <input 
@@ -42,7 +42,7 @@ const LoginPage = (props) => {
           </fieldset>
         </form>
 
-        <NavLink to='/register'>Click here to register</NavLink>
+        <NavLink to='/login'>Click here to login</NavLink>
       </section>
     </main>
   )
@@ -56,4 +56,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage)

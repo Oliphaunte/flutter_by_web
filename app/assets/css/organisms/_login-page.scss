@@ -1,0 +1,13 @@
+.o__login-page {
+  display: flex;
+  flex-wrap: wrap;
+
+  fieldset.wrappers {
+    display: flex;
+    width: 100%;
+
+    input {
+      border: 1px solid black;
+    }
+  }
+}

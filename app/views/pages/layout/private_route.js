@@ -6,11 +6,11 @@ import PropTypes from 'prop-types'
 
 const PrivateRoute = ({ component: Component, auth, ...rest }) => (  
   <Route {...rest} render={props => (
-    auth.isLoggedIn ? (
+    auth.isValidated ? (
       <Component {...props} />
     ) : (
       <Redirect to={{
-        pathname: '/',
+        pathname: '/login',
         state: { from: props.location }
       }}
       />

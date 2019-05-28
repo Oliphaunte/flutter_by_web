@@ -1,7 +1,7 @@
 const initialState = {
   isFetching: false,
   isLoading: false, 
-  isLoaded: false,
+  isValidated: false,
   lastLoaded: null,
   data: null
 }
