@@ -7,7 +7,7 @@ export const fetchAuth = () => {
       'Content-Type': 'application/x-www-form-urlencoded',
       'Accept': 'application/json' 
     },
-    user: {email: 'admina@admin.com', password: 'admin123' }
+    user: { email: 'test@test', password: 'test@test' }
   }
 
   return function(dispatch) {
